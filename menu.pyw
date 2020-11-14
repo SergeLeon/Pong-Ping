@@ -4,6 +4,7 @@ from random import randint
 
 import pygame
 
+import game
 import sound
 
 pygame.init()
