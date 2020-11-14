@@ -4,7 +4,6 @@ from random import randint
 
 import pygame
 
-import game
 import sound
 
 pygame.init()
@@ -35,6 +34,7 @@ def get_player_count():
     return player_count
 
 
+# создание кнопок
 Button = namedtuple("Button", ["surface", "size", "cords", "text", "action"])
 
 button_play = Button(surface=pygame.Surface([400, 100]), size=[400, 100], cords=[440, 260],
@@ -84,6 +84,7 @@ while running_menu:
 
     screen.blit(pygame.font.Font("AtariClassic-Regular.ttf", 64).render("Pong-Ping", 1, (0, 0, 0)), (353, 100))
 
+    # работа с кнопками
     for button in buttons_list:
         if check_touch(pygame.mouse.get_pos(), button.cords, button.size):
             button.surface.fill([0, 0, 0])
