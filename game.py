@@ -135,7 +135,7 @@ class Ball:
             sound.play_bounce_sound()
             self.x = (rocket1_cords[0] + 20 + self.size)
             self.vector[0] = -self.vector[0]
-            self.vector.rotate_ip(randint(-30, 30))
+            self.vector.rotate_ip(randint(-20, 20))
 
         #   от 2 рокетки
         if (rocket2_cords[0] - self.size) <= self.x < (rocket2_cords[0] + 10) \
@@ -143,7 +143,7 @@ class Ball:
             sound.play_bounce_sound()
             self.x = rocket2_cords[0] - self.size
             self.vector[0] = -self.vector[0]
-            self.vector.rotate_ip(randint(-30, 30))
+            self.vector.rotate_ip(randint(-20, 20))
 
         # оражение по y
         #   от стен
@@ -152,14 +152,14 @@ class Ball:
             sound.play_bounce_sound()
             self.y = 720 - self.size
             self.vector[1] = -self.vector[1]
-            self.vector.rotate_ip(randint(-15, 15))
+            self.vector.rotate_ip(randint(-10, 10))
 
         #       от верхней
         elif self.y <= self.size:
             sound.play_bounce_sound()
             self.y = self.size
             self.vector[1] = -self.vector[1]
-            self.vector.rotate_ip(randint(-15, 15))
+            self.vector.rotate_ip(randint(-10, 10))
 
         self.x += self.vector[0]
         self.y += self.vector[1]
@@ -171,14 +171,14 @@ class Ball:
         if self.x > 1280 + self.size:
             sound.play_death_sound()
             self.x, self.y = 640, 360
-            self.vector.xy = +5, 0
+            self.vector.xy = -5, 0
             self.vector.rotate_ip(randint(-30, 30))
             rocket1.set_score(rocket1.get_score() + 1)
 
         if self.x < 0 - self.size:
             sound.play_death_sound()
             self.x, self.y = 640, 360
-            self.vector.xy = -5, 0
+            self.vector.xy = +5, 0
             self.vector.rotate_ip(randint(-30, 30))
             rocket2.set_score(rocket2.get_score() + 1)
 
